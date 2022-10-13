@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppointmentCardView: View {
     @StateObject var viewModel: AppointmentViewModel = AppointmentViewModel()
-    var appointment: Appointment
+    var appointment: AppointmentItem
     var body: some View {
         HStack(alignment: .top, spacing: 30){
             VStack(spacing: 10){
@@ -87,6 +87,6 @@ struct AppointmentCardView: View {
 
 struct AppointmentCardView_Previews: PreviewProvider {
     static var previews: some View {
-        AppointmentCardView(appointment: Appointment(name: "jose", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665155364)))
+        AppointmentCardView(appointment: AppointmentItem(name: "jose", telf: "1213", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665155364)))
     }
 }

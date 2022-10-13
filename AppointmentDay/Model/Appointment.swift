@@ -8,9 +8,10 @@
 import Foundation
 
 
-struct Appointment: Identifiable {
+struct AppointmentItem: Identifiable {
     var id = UUID().uuidString
     var name: String
+    var telf: String 
     var description: String
     var date: Date
 

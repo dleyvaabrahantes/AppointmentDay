@@ -74,7 +74,8 @@ struct Home: View {
                 }
         }
         .onAppear{
-            print(appointmentModel.storedAppointment.count)
+
+        //    print(appointmentList.count)
         }
     }
     
@@ -136,6 +137,7 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
+        let viewContext = DataManager.shared.persistentStoreContainer.viewContext
         Home()
     }
 }

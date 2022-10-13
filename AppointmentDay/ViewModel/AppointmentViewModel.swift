@@ -10,12 +10,12 @@ import SwiftUI
 
 
 class AppointmentViewModel : ObservableObject {
-    @Published var storedAppointment: [Appointment] = [
-        Appointment(name: "Pepe", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665582203)),
-        Appointment(name: "Jose", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665585803)),
-        Appointment(name: "Mario", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665593003)),
-        Appointment(name: "Jesus", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665507098)),
-        Appointment(name: "Frrank", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665174124))
+    @Published var storedAppointment: [AppointmentItem] = [
+        AppointmentItem(name: "Pepe", telf: "123", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665582203)),
+        AppointmentItem(name: "Jose", telf: "123", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665585803)),
+        AppointmentItem(name: "Mario",telf: "123", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665593003)),
+        AppointmentItem(name: "Jesus", telf: "123", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665507098)),
+        AppointmentItem(name: "Frrank",telf: "123", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665174124))
         
     ]
     
@@ -23,7 +23,9 @@ class AppointmentViewModel : ObservableObject {
     @Published var currentWeek: [Date] = []
     @Published var currentDay: Date = Date()
     
-    @Published var filteredAppointment: [Appointment]?
+    @Published var filteredAppointment: [AppointmentItem]?
+    
+    
     
     init(){
 //        if currentWeek.isEmpty{

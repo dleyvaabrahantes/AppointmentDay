@@ -11,7 +11,11 @@ import SwiftUI
 struct AppointmentDayApp: App {
     var body: some Scene {
         WindowGroup {
+            
+            let viewContext = DataManager.shared.persistentStoreContainer.viewContext
+            
             ContentView()
+                .environment(\.managedObjectContext, viewContext)
         }
     }
 }

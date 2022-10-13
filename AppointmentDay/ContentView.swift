@@ -15,13 +15,14 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $currenttab) {
+            
             Home()
                 .tag(Tabs.home)
-            Text("Find")
+            FindView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color("BG").ignoresSafeArea())
                 .tag(Tabs.search)
-            Text("Setting")
+            SettingsView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color("BG").ignoresSafeArea())
                 .tag(Tabs.setting)

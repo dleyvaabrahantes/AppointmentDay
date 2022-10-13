@@ -46,10 +46,14 @@ struct DetailAppointment: View {
                     
                 }.navigationBarTitle("Deatil Appointment")
                 Button {
-                    print(appointmentModel.storedAppointment.count)
-                    var object = Appointment(name: name, description: Description, date: date)
-                    appointmentModel.storedAppointment.append(object)
-                    print(appointmentModel.storedAppointment.count)
+//                    let appoint = Appointment(context: viewContext)
+//                    appoint.id = UUID()
+//                    appoint.name = name
+//                    appoint.detail = Description
+//                    appoint.telf = Phone
+//                    appoint.date = date
+//                    try? viewContext.save()
+//                    print(appointmentList.count)
                 } label: {
                     Text("insertar")
                 }

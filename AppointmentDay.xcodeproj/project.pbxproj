@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		63A5E66328F84CCD00396740 /* DetailAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5E66228F84CCD00396740 /* DetailAppointment.swift */; };
+		63A5E66528F8582400396740 /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5E66428F8582400396740 /* FindView.swift */; };
+		63A5E66728F8582F00396740 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5E66628F8582F00396740 /* SettingsView.swift */; };
+		63A5E66A28F8A65000396740 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63A5E66828F8A65000396740 /* Model.xcdatamodeld */; };
+		63A5E66D28F8A7F400396740 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5E66C28F8A7F400396740 /* DataManager.swift */; };
 		63B5161228F6F8CA00B8EE0F /* MaterialEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5161128F6F8C900B8EE0F /* MaterialEffect.swift */; };
 		63B5161428F6F8D300B8EE0F /* BottomCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5161328F6F8D300B8EE0F /* BottomCurve.swift */; };
 		63D6F5A528F076A600DB7674 /* AppointmentDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6F5A428F076A600DB7674 /* AppointmentDayApp.swift */; };
@@ -22,6 +26,10 @@
 
 /* Begin PBXFileReference section */
 		63A5E66228F84CCD00396740 /* DetailAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppointment.swift; sourceTree = "<group>"; };
+		63A5E66428F8582400396740 /* FindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
+		63A5E66628F8582F00396740 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		63A5E66928F8A65000396740 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		63A5E66C28F8A7F400396740 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		63B5161128F6F8C900B8EE0F /* MaterialEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialEffect.swift; sourceTree = "<group>"; };
 		63B5161328F6F8D300B8EE0F /* BottomCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomCurve.swift; sourceTree = "<group>"; };
 		63D6F5A128F076A600DB7674 /* AppointmentDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppointmentDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63A5E66B28F8A7E700396740 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				63A5E66C28F8A7F400396740 /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		63D6F59828F076A600DB7674 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +81,7 @@
 		63D6F5A328F076A600DB7674 /* AppointmentDay */ = {
 			isa = PBXGroup;
 			children = (
+				63A5E66B28F8A7E700396740 /* DataManager */,
 				63D6F5B628F0776F00DB7674 /* ViewModel */,
 				63D6F5B328F076EF00DB7674 /* View */,
 				63D6F5B228F076E400DB7674 /* Model */,
@@ -72,6 +89,7 @@
 				63D6F5A628F076A600DB7674 /* ContentView.swift */,
 				63D6F5A828F076A900DB7674 /* Assets.xcassets */,
 				63D6F5AA28F076A900DB7674 /* Preview Content */,
+				63A5E66828F8A65000396740 /* Model.xcdatamodeld */,
 			);
 			path = AppointmentDay;
 			sourceTree = "<group>";
@@ -100,6 +118,8 @@
 				63D6F5B928F0792400DB7674 /* Home.swift */,
 				63D6F5BB28F0D09300DB7674 /* AppointmentCardView.swift */,
 				63A5E66228F84CCD00396740 /* DetailAppointment.swift */,
+				63A5E66428F8582400396740 /* FindView.swift */,
+				63A5E66628F8582F00396740 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,10 +207,14 @@
 				63D6F5B528F0770800DB7674 /* Appointment.swift in Sources */,
 				63B5161228F6F8CA00B8EE0F /* MaterialEffect.swift in Sources */,
 				63D6F5BC28F0D09300DB7674 /* AppointmentCardView.swift in Sources */,
+				63A5E66528F8582400396740 /* FindView.swift in Sources */,
 				63D6F5BA28F0792400DB7674 /* Home.swift in Sources */,
 				63D6F5A528F076A600DB7674 /* AppointmentDayApp.swift in Sources */,
 				63B5161428F6F8D300B8EE0F /* BottomCurve.swift in Sources */,
 				63D6F5B828F0779100DB7674 /* AppointmentViewModel.swift in Sources */,
+				63A5E66D28F8A7F400396740 /* DataManager.swift in Sources */,
+				63A5E66728F8582F00396740 /* SettingsView.swift in Sources */,
+				63A5E66A28F8A65000396740 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +415,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63A5E66828F8A65000396740 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63A5E66928F8A65000396740 /* Model.xcdatamodel */,
+			);
+			currentVersion = 63A5E66928F8A65000396740 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 63D6F59928F076A600DB7674 /* Project object */;
 }
