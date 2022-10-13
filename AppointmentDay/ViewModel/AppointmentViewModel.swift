@@ -11,10 +11,10 @@ import SwiftUI
 
 class AppointmentViewModel : ObservableObject {
     @Published var storedAppointment: [Appointment] = [
-        Appointment(name: "Pepe", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665155364)),
-        Appointment(name: "Jose", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665414564)),
-        Appointment(name: "Mario", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1664982564)),
-        Appointment(name: "Jesus", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1664636964)),
+        Appointment(name: "Pepe", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665582203)),
+        Appointment(name: "Jose", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665585803)),
+        Appointment(name: "Mario", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665593003)),
+        Appointment(name: "Jesus", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665507098)),
         Appointment(name: "Frrank", description: "Cut and Bar", date: .init(timeIntervalSince1970: 1665174124))
         
     ]
@@ -73,7 +73,7 @@ class AppointmentViewModel : ObservableObject {
                 return calendar.isDate($0.date, inSameDayAs: self.currentDay)
             }
                 .sorted { value1, value2 in
-                    return value2.date < value1.date
+                    return value2.date > value1.date
                 }
             
             DispatchQueue.main.async {

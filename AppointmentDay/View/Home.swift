@@ -9,62 +9,73 @@ import SwiftUI
 
 struct Home: View {
     @StateObject var appointmentModel: AppointmentViewModel = AppointmentViewModel()
+    @State var showSheet: Bool = false
     @Namespace var animation
+    @State var show: Bool = false
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false){
-            
-            LazyVStack(spacing: 15, pinnedViews: [.sectionHeaders]){
-                Section {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(appointmentModel.currentWeek, id: \.self){ day in
-                                VStack(spacing: 10) {
-                                    Text(appointmentModel.extracDate(date: day, format: "dd"))
-                                        .font(.system(size: 14))
-                                        .fontWeight(.semibold)
-                                    Text(appointmentModel.extracDate(date: day, format: "EEE"))
-                                        .font(.system(size: 14))
-                                        .fontWeight(.semibold)
-                                    
-                                    Circle()
-                                        .fill(.white)
-                                        .frame(width:8, height: 8)
-                                        .opacity(appointmentModel.isToday(date: day) ? 1 : 0)
-                                }
-                                .foregroundStyle(appointmentModel.isToday(date: day) ? .primary : .secondary)
-                                .foregroundColor(appointmentModel.isToday(date: day) ? .white: .black)
-                                .frame(width: 45, height: 90)
-                                .background {
-                                    ZStack{
-                                        if appointmentModel.isToday(date: day){
-                                            Capsule()
-                                                .fill(.black)
-                                                .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false){
+                
+                LazyVStack(spacing: 15, pinnedViews: [.sectionHeaders]){
+                    Section {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 10) {
+                                ForEach(appointmentModel.currentWeek, id: \.self){ day in
+                                    VStack(spacing: 10) {
+                                        Text(appointmentModel.extracDate(date: day, format: "dd"))
+                                            .font(.system(size: 14))
+                                            .fontWeight(.semibold)
+                                        Text(appointmentModel.extracDate(date: day, format: "EEE"))
+                                            .font(.system(size: 14))
+                                            .fontWeight(.semibold)
+                                        
+                                        Circle()
+                                            .fill(.white)
+                                            .frame(width:8, height: 8)
+                                            .opacity(appointmentModel.isToday(date: day) ? 1 : 0)
+                                    }
+                                    .foregroundStyle(appointmentModel.isToday(date: day) ? .primary : .secondary)
+                                    .foregroundColor(appointmentModel.isToday(date: day) ? .white: .black)
+                                    .frame(width: 45, height: 90)
+                                    .background {
+                                        ZStack{
+                                            if appointmentModel.isToday(date: day){
+                                                Capsule()
+                                                    .fill(.black)
+                                                    .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+                                            }
+                                        }
+                                    }
+                                    .contentShape(Capsule())
+                                    .onTapGesture {
+                                        withAnimation {
+                                            appointmentModel.currentDay = day
                                         }
                                     }
                                 }
-                                .contentShape(Capsule())
-                                .onTapGesture {
-                                    withAnimation {
-                                        appointmentModel.currentDay = day
-                                    }
-                                }
                             }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        .refreshable {
+                            appointmentModel.fetchCurrentWeek(dateLast: appointmentModel.currentWeek.last)
+                        }
+                        AppointmentView()
+                    } header: {
+                        HeaderView()
                     }
-                    .refreshable {
-                        appointmentModel.fetchCurrentWeek(dateLast: appointmentModel.currentWeek.last)
-                    }
-                    AppointmentView()
-                } header: {
-                    HeaderView()
-                }
 
+                }
             }
+            .ignoresSafeArea(.container, edges: .top)
+            ButtonFloat(show: $show, showSheet: $showSheet)
+                .sheet(isPresented: $showSheet) {
+                    DetailAppointment()
+                }
         }
-        .ignoresSafeArea(.container, edges: .top)
+        .onAppear{
+            print(appointmentModel.storedAppointment.count)
+        }
     }
     
     func HeaderView()->some View {
